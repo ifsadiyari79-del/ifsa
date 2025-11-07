@@ -4,6 +4,22 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>İfşa Sayfası</title>
+  <script>
+// Bu sayfa daha önce açıldıysa tamamen engelle
+if (localStorage.getItem("ifsaGoruldu")) {
+    window.location.replace("about:blank"); // ya da başka sayfa
+}
+
+// İşaretle: Artık bu sayfa görüldü
+localStorage.setItem("ifsaGoruldu", "true");
+
+// Geri tuşunu tamamen yok et
+history.pushState(null, "", location.href);
+window.onpopstate = function() {
+    history.pushState(null, "", location.href);
+};
+</script>
+
 
   <script>
     // Tarayıcı "Geri" tuşunu etkisiz hale getir
@@ -38,3 +54,4 @@
 
 </body>
 </html>
+
