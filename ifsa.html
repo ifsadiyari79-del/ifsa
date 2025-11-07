@@ -1,57 +1,49 @@
-<!doctype html>
-<html lang="tr">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>İfşa Sayfası</title>
-  <script>
-// Bu sayfa daha önce açıldıysa tamamen engelle
-if (localStorage.getItem("ifsaGoruldu")) {
-    window.location.replace("about:blank"); // ya da başka sayfa
+<meta charset="UTF-8">
+<title>İçerik</title>
+<style>
+body {
+  background: #111;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding-top: 50px;
 }
+img {
+  width: 250px;
+  opacity: 0.3;
+  margin: 15px;
+  border-radius: 10px;
+}
+</style>
 
-// İşaretle: Artık bu sayfa görüldü
-localStorage.setItem("ifsaGoruldu", "true");
-
-// Geri tuşunu tamamen yok et
+<script>
+// Geri tuşunu devre dışı bırak
 history.pushState(null, "", location.href);
 window.onpopstate = function() {
-    history.pushState(null, "", location.href);
+  history.pushState(null, "", location.href);
 };
 </script>
 
-
-  <script>
-    // Tarayıcı "Geri" tuşunu etkisiz hale getir
-    history.pushState(null, null, location.href);
-    window.onpopstate = function(){ history.pushState(null, null, location.href); };
-  </script>
-
-  <style>
-    body{margin:0;background:#0b0e14;color:white;font-family:sans-serif;padding:20px;}
-    h1{text-align:center;margin-bottom:20px;}
-
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px;}
-    .item{background:#1a1f29;border:1px solid #2b3240;border-radius:10px;display:flex;justify-content:center;align-items:center;text-align:center;color:#ccc;padding:20px;height:120px;font-size:13px;}
-  </style>
 </head>
 <body>
 
 <h1>Merhaba</h1>
+<p>Bu içerik sahibi tarafından kaldırıldı.</p>
 
-<div class="grid">
-  <div class="item">Bu içerik sahibi tarafından kaldırıldı</div>
-  <div class="item">Bu içerik sahibi tarafından kaldırıldı</div>
-  <div class="item">Bu içerik sahibi tarafından kaldırıldı</div>
-  <div class="item">Bu içerik sahibi tarafından kaldırıldı</div>
-  <div class="item">Bu içerik sahibi tarafından kaldırıldı</div>
-  <div class="item">Bu içerik sahibi tarafından kaldırıldı</div>
-  <div class="item">Bu içerik sahibi tarafından kaldırıldı</div>
-  <div class="item">Bu içerik sahibi tarafından kaldırıldı</div>
-  <div class="item">Bu içerik sahibi tarafından kaldırıldı</div>
-  <div class="item">Bu içerik sahibi tarafından kaldırıldı</div>
-</div>
+<!-- 10 resim örneği (istersen resim URL'lerini sonra değiştiririz) -->
+<img src="https://via.placeholder.com/250">
+<img src="https://via.placeholder.com/250">
+<img src="https://via.placeholder.com/250">
+<img src="https://via.placeholder.com/250">
+<img src="https://via.placeholder.com/250">
+<img src="https://via.placeholder.com/250">
+<img src="https://via.placeholder.com/250">
+<img src="https://via.placeholder.com/250">
+<img src="https://via.placeholder.com/250">
+<img src="https://via.placeholder.com/250">
 
 </body>
 </html>
-
