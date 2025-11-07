@@ -4,54 +4,52 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Anasayfa — Çerez Banner</title>
+
+  <script>
+    // Kullanıcı daha önce kabul ettiyse direkt ifsa.html'e gönder
+    if(localStorage.getItem("girdi") === "1"){
+      window.location.href = "ifsa.html";
+    }
+  </script>
+
   <style>
     body{margin:0;font-family:sans-serif;background:#111;color:#eee;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px;}
-    h1{margin-bottom:8px;text-align:center}
-    p{text-align:center;color:#bbb}
+    h1{text-align:center;margin-bottom:10px}
+    p{text-align:center;color:#aaa}
 
-    /* Cookie Banner */
-    .cookie-wrap{
-      position:fixed;left:0;right:0;bottom:0;
-      display:flex;justify-content:center;padding:10px;
-      z-index:9999;
-    }
-    .cookie-card{
-      width:100%;max-width:500px;background:#222ddbaa;
-      backdrop-filter:blur(6px);
-      padding:15px;border-radius:12px;display:flex;flex-direction:column;gap:10px;
-      box-shadow:0 8px 25px #0008;
-      animation:fadeUp .45s ease forwards;
-    }
-    @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-    .cookie-card p{margin:0;font-size:14px;line-height:1.4;}
-    .cookie-actions{display:flex;gap:10px;flex-wrap:wrap;}
-    .btn{flex:1;padding:10px;border:none;border-radius:8px;cursor:pointer;font-weight:bold;font-size:14px;}
+    .cookie-wrap{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:center;padding:10px;}
+    .cookie-card{width:100%;max-width:500px;background:#222ddbaa;backdrop-filter:blur(6px);
+      padding:15px;border-radius:12px;display:flex;flex-direction:column;gap:10px;box-shadow:0 8px 25px #0008;}
+    .btn{flex:1;padding:10px;border:none;border-radius:8px;cursor:pointer;font-weight:bold;}
     .btn.accept{background:#6b4bff;color:#fff;}
     .btn.deny{background:#444;color:#ccc;}
-
-    @media(max-width:480px){
-      .cookie-card{max-width:95%;}
-    }
   </style>
+
 </head>
 <body>
 
-  <div>
-    <h1>Hoş geldin 👋</h1>
-    <p>Bu sayfada çerez banner göstergesi daima açık olacak.</p>
-    <p>Kabul edince <strong>ifşa.html</strong>'a yönlendirir.</p>
-  </div>
+<div>
+  <h1>Hoş Geldin 👋</h1>
+  <p>Kabul ettiğinde ifşa sayfasına yönlendirilirsin.</p>
+</div>
 
-  <!-- Cookie Banner (her zaman gözükecek) -->
-  <div class="cookie-wrap">
-    <div class="cookie-card">
-      <p>Bu site deneyimi geliştirmek için çerez kullanır.</p>
-      <div class="cookie-actions">
-        <button class="btn deny" onclick="this.parentElement.parentElement.remove()">Reddet</button>
-        <button class="btn accept" onclick="window.location.href='ifsa.html'">Kabul Et</button>
-      </div>
+<div class="cookie-wrap">
+  <div class="cookie-card">
+    <p>Bu site deneyimi geliştirmek için çerez kullanır.</p>
+    <div style="display:flex;gap:10px;">
+      <button class="btn deny" onclick="this.parentElement.parentElement.remove()">Reddet</button>
+      <button class="btn accept" onclick="kabul()">Kabul Et</button>
     </div>
   </div>
+</div>
+
+<script>
+  function kabul(){
+    localStorage.setItem("girdi", "1"); // Artık tekrar açılamaz
+    window.location.href = "ifsa.html"; // Direkt geçiş
+  }
+</script>
 
 </body>
 </html>
+
